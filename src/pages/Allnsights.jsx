@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { TrendingUp, AlertCircle, CheckCircle, Lightbulb, Activity, Heart, Zap, BarChart3 } from 'lucide-react';
 import { useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000';
+
+
 const AIInsightsPage = () => {
   const [selectedInsight, setSelectedInsight] = useState('overview');
   const [healthMetrics, setHealthMetrics] = useState([]);
@@ -25,7 +29,7 @@ const AIInsightsPage = () => {
                 return;
             }
 
-            const lastRes = await fetch(`http://localhost:5000/api/reports/last`, {
+            const lastRes = await fetch(`${API_BASE_URL}/api/reports/last`, {
             method: "GET",
             headers: {
               "Authorization": `Bearer ${token}`,
@@ -46,7 +50,7 @@ const AIInsightsPage = () => {
             }
             
 
-            const res = await fetch(`http://localhost:5000/api/reports/${report_id}/insights`, {
+            const res = await fetch(`${API_BASE_URL}/api/reports/${report_id}/insights`, {
               method: "GET",
               headers: {
                 "Authorization": `Bearer ${token}`,

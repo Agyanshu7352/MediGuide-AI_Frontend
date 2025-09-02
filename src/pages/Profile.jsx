@@ -3,6 +3,9 @@ import { User, FileText, Heart, Calendar, Settings, Edit3, Camera, Bell, Shield,
 import { useNavigate } from "react-router-dom";
 import Loading from '../components/Loading';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000';
+
+
 // This is a simple placeholder for features that are not yet ready.
 const ComingSoon = () => {
     return (
@@ -68,7 +71,7 @@ const Profile = () => {
             if (data) {
                 options.body = JSON.stringify(data);
             }
-            const fullUrl = `http://localhost:5000/api/user${endpoint}`;
+            const fullUrl = `${API_BASE_URL}/api/user${endpoint}`;
             const response = await fetch(fullUrl, options);
             if (response.status === 401) {
                 localStorage.removeItem('authToken');
@@ -106,7 +109,7 @@ const Profile = () => {
 
         try {
             setUpdateLoading(true);
-            const response = await fetch('http://localhost:5000/api/user/profile/picture', {
+            const response = await fetch(`${API_BASE_URL}/api/user/profile/picture`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData,
@@ -117,7 +120,7 @@ const Profile = () => {
             if (!response.ok) {
                 throw new Error(result.error || 'Upload failed');
             }
-            setProfileImage(`http://localhost:5000${result.data.profile_pic_url}?t=${new Date().getTime()}`);
+            setProfileImage(`${API_BASE_URL}${result.data.profile_pic_url}?t=${new Date().getTime()}`);
         } catch (uploadError) {
             console.error("Failed to upload profile picture:", uploadError);
             setError(`Failed to upload image: ${uploadError.message}`);
@@ -192,7 +195,7 @@ const Profile = () => {
                     const profile = profileResponse.profile;
                     setProfileData(profile);
                     if (profile.profile_pic_url) {
-                        setProfileImage(`http://localhost:5000${profile.profile_pic_url}`);
+                        setProfileImage(`${API_BASE_URL}${profile.profile_pic_url}`);
                     }
                 }
 

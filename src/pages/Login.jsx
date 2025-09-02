@@ -4,6 +4,7 @@ import { useAuth } from '../App';
 import { Eye, EyeOff, Mail, Lock, User, Heart, Shield, Stethoscope, Activity, Sun, Moon } from 'lucide-react';
 
 
+
 const Login = ({ setShowPopup }) => {
   // Get the login/signup functions from our Auth context
  

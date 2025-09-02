@@ -3,6 +3,9 @@ import { Activity, Apple, AlertCircle, CheckCircle, Clock, Target, Utensils } fr
 import {  useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000';
+
+
 const DietRecommendationsPage = () => {
     const [selectedMealPlan, setSelectedMealPlan] = useState('balanced');
     const [activeTab, setActiveTab] = useState('recommendations');
@@ -29,8 +32,7 @@ const DietRecommendationsPage = () => {
                     return;
                 }
 
-              
-                const lastRes = await fetch(`http://localhost:5000/api/reports/last`, {
+                const lastRes = await fetch(`${API_BASE_URL}/api/reports/last`, {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`,
@@ -63,7 +65,7 @@ const DietRecommendationsPage = () => {
             if (!reportId) return;
             try {
                 const token = getAuthToken();
-                const res = await fetch(`http://127.0.0.1:5000/api/reports/${reportId}/diet`, {
+                const res = await fetch(`${API_BASE_URL}/api/reports/${reportId}/diet`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
 

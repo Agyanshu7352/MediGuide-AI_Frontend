@@ -101,7 +101,7 @@ const Dashboard = () => {
             console.error('Error fetching report:', err);
             setSelectedReportData({ error: err.message });
         } finally {
-            //setDetailsLoading(false);
+            setDetailsLoading(false);
         }
     };
 
