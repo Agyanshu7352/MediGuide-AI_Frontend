@@ -5,7 +5,7 @@ import Loading from '../components/Loading';
 import ComponentLoading from '../components/ComponentLoading';
 
 // This gets the backend URL from your .env.local file
-const API_BASE_URL = import.meta.env.API_BASE_URL || 'http://127.0.0.1:5000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
 
 const Dashboard = () => {
     const navigate = useNavigate();

@@ -3,7 +3,7 @@ import { User, FileText, Heart, Calendar, Settings, Edit3, Camera, Bell, Shield,
 import { useNavigate } from "react-router-dom";
 import Loading from '../components/Loading';
 
-const API_BASE_URL = import.meta.env.API_BASE_URL || 'http://127.0.0.1:5000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
 
 
 // This is a simple placeholder for features that are not yet ready.
