@@ -23,8 +23,10 @@ import ComingSoonPage from "./pages/ComingSoon";
 const AuthContext = createContext(null);
 
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-console.log("API_BASE_URL in app.jsx:", API_BASE_URL);
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
+console.log("All env variables:", import.meta.env);
+console.log("VITE_API_BASE_URL:", import.meta.env.VITE_API_BASE_URL);
+console.log("Environment mode:", import.meta.env.MODE);
 
 
 function AuthProvider({ children }) {
