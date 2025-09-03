@@ -24,6 +24,7 @@ const AuthContext = createContext(null);
 
 
 const API_BASE_URL = import.meta.env.API_BASE_URL;
+console.log("API_BASE_URL in app.jsx:", API_BASE_URL);
 
 
 function AuthProvider({ children }) {
