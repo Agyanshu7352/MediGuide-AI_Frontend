@@ -23,7 +23,7 @@ import ComingSoonPage from "./pages/ComingSoon";
 const AuthContext = createContext(null);
 
 
-const API_BASE_URL = import.meta.env.local.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 console.log("API_BASE_URL in app.jsx:", API_BASE_URL);
 
 
