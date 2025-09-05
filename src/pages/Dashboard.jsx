@@ -7,6 +7,7 @@ import ComponentLoading from '../components/ComponentLoading';
 // This gets the backend URL from your .env.local file
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
 
+
 const Dashboard = () => {
     const navigate = useNavigate();
     const [reports, setReports] = useState([]);
@@ -62,10 +63,10 @@ const Dashboard = () => {
     // Fetch analysis details for a specific report when clicked
     const handleReportClick = async (reportId) => {
         if (!reportId) return;
-
+        
         setDetailsLoading(true);
         setSelectedReportData(null);
-
+        
         const token = getAuthToken();
         if (!token) {
             setError("Authentication error. Please log in again.");
@@ -74,6 +75,7 @@ const Dashboard = () => {
             return;
         }
         
+        console.log("ye report id hai:", reportId)
         try {
             const response = await fetch(`${API_BASE_URL}/api/reports/${reportId}/analysis`, {
                 headers: {
@@ -160,7 +162,7 @@ const Dashboard = () => {
                                 reports.map((report) => (
                                     <div 
                                         key={report._id} 
-                                        onClick={() => handleReportClick(report.report_id || report._id)}
+                                        onClick={() => handleReportClick(report.report_id || report._id.$oid)}
                                         className="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center justify-between hover:shadow-lg cursor-pointer transition-all border dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
                                     >
                                         <div className="flex items-center space-x-4">

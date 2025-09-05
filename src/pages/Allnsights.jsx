@@ -43,6 +43,7 @@ const AIInsightsPage = () => {
             
             if (lastData.success && lastData.report._id) {
                 report_id = lastData.report._id;
+                console.log("Last Report ID:", report_id);
             } else {
               console.warn("No last report found:", lastData.error || "Unexpected response");
               setLoading(false);

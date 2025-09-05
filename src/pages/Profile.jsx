@@ -6,6 +6,7 @@ import Loading from '../components/Loading';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
 
 
+
 // This is a simple placeholder for features that are not yet ready.
 const ComingSoon = () => {
     return (
