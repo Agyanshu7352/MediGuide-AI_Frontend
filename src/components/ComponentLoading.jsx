@@ -29,7 +29,7 @@ const SpinningDots = ({ size = 'md', color = 'blue' }) => {
 
 const ComponentLoading = () => {
     return (
-        <div className="min-h-[80vh] flex-col flex items-center justify-center lg:col-span-2 space-y-6 bg-gray-800 backdrop-blur-sm  rounded-xl p-6 text-center">
+        <div className="min-h-[80vh] flex-col flex items-center justify-center lg:col-span-2 space-y-6 bg-white dark:bg-gray-800 backdrop-blur-sm  rounded-xl p-6 text-center">
             <div className="mb-4 items-center flex justify-center">
               <SpinningDots color="blue" />
             </div>
