@@ -27,14 +27,13 @@ const SpinningDots = ({ size = 'md', color = 'blue' }) => {
   );
 };
 
-const ComponentLoading = ({ title }) => {
+const ComponentLoading = () => {
     return (
-        <div className="lg:col-span-2 space-y-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center">
-            <h3 className="text-white font-semibold mb-4">{title}</h3>
-            <div className="mb-4 flex justify-center">
+        <div className="min-h-[80vh] flex-col flex items-center justify-center lg:col-span-2 space-y-6 bg-gray-800 backdrop-blur-sm  rounded-xl p-6 text-center">
+            <div className="mb-4 items-center flex justify-center">
               <SpinningDots color="blue" />
             </div>
-            <div className="flex justify-center space-x-4 mb-4">
+            <div className="flex justify-center items-center space-x-4 mb-4">
               <SpinningDots size="sm" color="purple" />
               <SpinningDots size="lg" color="pink" />
             </div>

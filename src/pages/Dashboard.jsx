@@ -132,9 +132,7 @@ const Dashboard = () => {
     if(listLoading){
         return (<Loading title="Loading reports..." />);
     }
-    if(detailsLoading){
-        return(<ComponentLoading title="Loading report details..." />);
-    }
+
     return (
         <section id="dashboard" className="py-10 bg-white dark:bg-gray-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,7 +200,7 @@ const Dashboard = () => {
                                 Extracted Report Data
                             </h3>
                             {detailsLoading ? (
-                                <div className="text-center py-10"><Activity className="animate-spin h-8 w-8 text-blue-500 mx-auto" /></div>
+                                <ComponentLoading />
                             ) : selectedReportData ? (
                                 selectedReportData.error ? (
                                     <div className="text-center py-10 text-red-500"><AlertCircle className="h-8 w-8 mx-auto mb-2" /><p>{selectedReportData.error}</p></div>
