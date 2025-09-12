@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Brain, Pill, Activity, Shield, Users } from 'lucide-react';
+import { FileText, Brain, Pill, Activity, Shield, Users,CircleArrowLeft } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 
 const FeaturesSection = () => {
@@ -7,6 +7,9 @@ const FeaturesSection = () => {
 
   const goToPage = (link) => {
     navigate(link);
+  };
+  const handleBackToApp = () => {
+    navigate(-1);  
   };
 
   const features = [
@@ -55,8 +58,17 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section id="features" className="py-10 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section id="features" className="py-10 pt-0 bg-white dark:bg-gray-900 transition-colors duration-300">
 
+      <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+          <button 
+          onClick={handleBackToApp}
+          className={"flex items-center gap-2 transition-colors duration-300 group "}
+          >
+          <CircleArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300 " />
+          <span>Back</span>
+          </button>
+      </nav>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Upload, CheckCircle, AlertCircle } from 'lucide-react';
+import { Upload, CheckCircle, AlertCircle,CircleArrowLeft } from 'lucide-react';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
 
@@ -74,9 +74,19 @@ const UploadSection = () => {
     const handleDragOver = (e) => e.preventDefault();
     const handleDrop = (e) => { e.preventDefault(); performAnalysis(e.dataTransfer.files[0]); };
     const handleViewAnalysisClick = (e) => { e.stopPropagation(); navigate('/dashboard'); };
+    const handleBackToApp = () => { navigate(-1); };
 
     return (
         <section id="upload" className="py-20 bg-linear-to-br from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20">
+            <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+                <button 
+                onClick={handleBackToApp}
+                className={"flex items-center gap-2 transition-colors duration-300 group "}
+                >
+                <CircleArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300 " />
+                <span>Back</span>
+                </button>
+            </nav>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12"><h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Upload Your Medical Report</h2><p className="text-xl text-gray-600 dark:text-gray-300">Get instant AI-powered analysis</p></div>
                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-transparent dark:border-gray-700">

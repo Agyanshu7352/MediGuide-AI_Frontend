@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, Activity, AlertCircle, User, Beaker, X } from 'lucide-react';
+import { FileText, Activity, AlertCircle, User, Beaker, X,CircleArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading';
 import ComponentLoading from '../components/ComponentLoading';
@@ -149,12 +149,25 @@ const Dashboard = () => {
         return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
     };
 
+    const handleBackToApp = () => {
+        navigate(-1);  
+    };
+
     if (listLoading) {
         return (<Loading title="Loading reports..." />);
     }
 
     return (
         <section id="dashboard" className="py-10 bg-white dark:bg-gray-900">
+            <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+                <button 
+                onClick={handleBackToApp}
+                className={"flex items-center gap-2 transition-colors duration-300 group "}
+                >
+                <CircleArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300 " />
+                <span>Back</span>
+                </button>
+            </nav>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

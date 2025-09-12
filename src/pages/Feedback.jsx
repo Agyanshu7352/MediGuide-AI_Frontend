@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star , CircleArrowLeft} from 'lucide-react';
 
 const FeedBack = () => {
   const testimonials = [
@@ -25,9 +25,21 @@ const FeedBack = () => {
       text: "The medication interaction checker saved me from a potential issue. This tool is invaluable for managing health."
     }
   ];
+  const handleBackToApp = () => {
+    navigate(-1);  
+  };
 
   return (
     <section className="py-20 bg-linear-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 transition-colors duration-300">
+      <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+          <button 
+          onClick={handleBackToApp}
+          className={"flex items-center gap-2 transition-colors duration-300 group "}
+          >
+          <CircleArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300 " />
+          <span>Back</span>
+          </button>
+      </nav>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">

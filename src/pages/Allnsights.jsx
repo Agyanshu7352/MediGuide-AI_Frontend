@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, AlertCircle, CheckCircle, Lightbulb, Activity, Heart, Zap, BarChart3 } from 'lucide-react';
+import { TrendingUp, AlertCircle, CheckCircle, Lightbulb, Activity, Heart, Zap, BarChart3,CircleArrowLeft } from 'lucide-react';
 import { useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
 
@@ -136,6 +136,9 @@ const AIInsightsPage = () => {
         return <Activity className="h-4 w-4 text-blue-500 dark:text-blue-400" />;
     }
   };
+  const handleBackToApp = () => {
+    navigate(-1);  
+  };
 
   if (loading) {
     return (
@@ -145,7 +148,15 @@ const AIInsightsPage = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 transition-colors duration-300">
-
+      <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+          <button 
+          onClick={handleBackToApp}
+          className={"flex items-center gap-2 transition-colors duration-300 group "}
+          >
+          <CircleArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300 " />
+          <span>Back</span>
+          </button>
+      </nav>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
         
         {/* ---------- Health Metrics (Dynamic) ---------- */}

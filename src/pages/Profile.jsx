@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { User, FileText, Heart, Calendar, Settings, Edit3, Camera, Bell, Shield, Download, Activity, AlertCircle, CheckCircle, Upload, Plus, ChevronRight, Beaker } from 'lucide-react';
+import { User, FileText, Heart, Calendar, Settings, Edit3, Camera, Shield, Download, Activity, AlertCircle, ChevronRight,CircleArrowLeft } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 import Loading from '../components/Loading';
 
@@ -288,6 +288,10 @@ const Profile = () => {
         }
     };
 
+    const handleBackToApp = () => {
+        navigate(-1);  
+    };
+
     if (loading) {
         return (
             <Loading title="Loading Profile..." />
@@ -296,23 +300,15 @@ const Profile = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
-            {/* Header */}
-            {/* <div className="bg-white dark:bg-gray-800 shadow-xs border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                                <Heart className="w-5 h-5 text-white" />
-                            </div>
-                            <h1 className="text-xl font-bold text-gray-900 dark:text-white">MediGuide AI</h1>
-                        </div>
-                        <div className="flex items-center space-x-4">
-                            <Bell className="w-5 h-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer transition-colors" />
-                            <Settings className="w-5 h-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer transition-colors" />
-                        </div>
-                    </div>
-                </div>
-            </div> */}
+           <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+                <button 
+                onClick={handleBackToApp}
+                className={"flex items-center gap-2 transition-colors duration-300 group "}
+                >
+                <CircleArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300 " />
+                <span>Back</span>
+                </button>
+            </nav>
 
             {error && (
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Activity, Apple, AlertCircle, CheckCircle, Clock, Target, Utensils } from 'lucide-react';
+import { Activity, Apple, AlertCircle, CheckCircle, Clock, Target, Utensils, CircleArrowLeft } from 'lucide-react';
 import {  useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading';
 
@@ -110,6 +110,9 @@ const DietRecommendationsPage = () => {
     if (error) {
         return <div className="p-8 text-center text-red-600">{error}</div>;
     }
+    const handleBackToApp = () => {
+        navigate(-1);  
+    };
 
     if (!dietData) {
         return <div className="p-8 text-center text-red-600">Failed to load diet data.</div>;
@@ -117,6 +120,15 @@ const DietRecommendationsPage = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+            <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+                <button 
+                onClick={handleBackToApp}
+                className={"flex items-center gap-2 transition-colors duration-300 group "}
+                >
+                <CircleArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300 " />
+                <span>Back</span>
+                </button>
+            </nav>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Health Conditions Overview */}
                 <div className="bg-white rounded-xl shadow-lg p-6 mb-8">

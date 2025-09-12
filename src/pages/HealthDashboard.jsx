@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Calendar, TrendingUp, Activity, Heart, Brain, Shield, FileText, Bell, Plus } from 'lucide-react';
+import { Calendar, TrendingUp, Activity, Heart, Brain, Shield, FileText, Bell, Plus , CircleArrowLeft } from 'lucide-react';
 
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
@@ -138,8 +138,21 @@ const HealthDashboard = () => {
         }
     };
 
+    const handleBackToApp = () => {
+        navigate(-1);  
+    };
+
     return (
         <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50">
+            <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+                <button 
+                onClick={handleBackToApp}
+                className={"flex items-center gap-2 transition-colors duration-300 group "}
+                >
+                <CircleArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300 " />
+                <span>Back</span>
+                </button>
+            </nav>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Health Metrics */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">

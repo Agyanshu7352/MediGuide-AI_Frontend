@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Upload, CheckCircle, BrainCircuit, FileText, Loader2, AlertTriangle } from 'lucide-react';
+import { CircleArrowLeft, Upload, BrainCircuit, FileText, Loader2, AlertTriangle } from 'lucide-react';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
 
@@ -90,7 +90,7 @@ const SmartReportAnalysis = () => {
                 <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-4">
                         <button onClick={() => navigate(-1)} className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full">
-                            <ArrowLeft className="h-6 w-6 text-gray-600 dark:text-gray-300" />
+                            <CircleArrowLeft className="h-6 w-6 text-gray-600 dark:text-gray-300" />
                         </button>
                         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Smart Report Analysis</h1>
                     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../App'; 
-import { Eye, EyeOff, Mail, Lock, User, Heart, Shield, Stethoscope, Activity, Sun, Moon } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, User, Heart, Shield, Stethoscope, Activity, CircleArrowLeft } from 'lucide-react';
 
 
 
@@ -96,9 +96,22 @@ const Login = ({ setShowPopup }) => {
     }
   };
 
+  const handleBackToApp = () => {
+    navigate(-1);  
+  };
+
   return (
     <div className="min-h-screen transition-all duration-500 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
       
+      <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+          <button 
+          onClick={handleBackToApp}
+          className={"flex items-center gap-2 transition-colors duration-300 group "}
+          >
+          <CircleArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300 " />
+          <span>Back</span>
+          </button>
+      </nav>
       {/* ... (The rest of your beautiful UI code is unchanged) ... */}
 
       <div className="flex items-center justify-center min-h-screen p-4">
