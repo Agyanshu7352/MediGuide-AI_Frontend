@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TrendingUp, AlertCircle, CheckCircle, Lightbulb, Activity, Heart, Zap, BarChart3,CircleArrowLeft } from 'lucide-react';
 import { useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
+import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
 
@@ -14,6 +15,7 @@ const AIInsightsPage = () => {
   const [personalizedActionPlan, setPersonalizedActionPlan] = useState({ shortTerm: [], longTerm: [] });
   const [loading, setLoading] = useState(true);
   const { reportId } = useParams();
+  const navigate = useNavigate();
 
   const getAuthToken = () => {
         return localStorage.getItem('token') || localStorage.getItem('authToken');
@@ -148,7 +150,7 @@ const AIInsightsPage = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 transition-colors duration-300">
-      <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+      <nav className="relative z-10 p-6 pb-0 flex justify-start items-center dark:text-white">
           <button 
           onClick={handleBackToApp}
           className={"flex items-center gap-2 transition-colors duration-300 group "}
@@ -157,7 +159,7 @@ const AIInsightsPage = () => {
           <span>Back</span>
           </button>
       </nav>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         
         {/* ---------- Health Metrics (Dynamic) ---------- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">

@@ -60,7 +60,7 @@ const FeaturesSection = () => {
   return (
     <section id="features" className="py-10 pt-0 bg-white dark:bg-gray-900 transition-colors duration-300">
 
-      <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+      <nav className="relative z-10 p-6 pb-0 flex justify-start items-center dark:text-white">
           <button 
           onClick={handleBackToApp}
           className={"flex items-center gap-2 transition-colors duration-300 group "}

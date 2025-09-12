@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { User, FileText, Heart, Calendar, Settings, Edit3, Camera, Shield, Download, Activity, AlertCircle, ChevronRight,CircleArrowLeft } from 'lucide-react';
+import { FileText, Heart, Calendar, Settings, Edit3, Camera, Shield, Download, Activity, AlertCircle, ChevronRight,CircleArrowLeft, CircleUserRound } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 import Loading from '../components/Loading';
 
@@ -121,7 +121,7 @@ const Profile = () => {
             if (!response.ok) {
                 throw new Error(result.error || 'Upload failed');
             }
-            setProfileImage(`${API_BASE_URL}${result.data.profile_pic_url}?t=${new Date().getTime()}`);
+            setProfileImage(`${API_BASE_URL}${result.data.profile_pic_url}?t=${new Date().getTime()} || ${CircleUserRound}`); // Cache busting
         } catch (uploadError) {
             console.error("Failed to upload profile picture:", uploadError);
             setError(`Failed to upload image: ${uploadError.message}`);
@@ -300,7 +300,7 @@ const Profile = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
-           <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
+           <nav className="relative z-10 p-6 pb-0 flex justify-start items-center dark:text-white">
                 <button 
                 onClick={handleBackToApp}
                 className={"flex items-center gap-2 transition-colors duration-300 group "}
@@ -311,7 +311,7 @@ const Profile = () => {
             </nav>
 
             {error && (
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-[0.5rem]">
                     <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg">
                         <div className="flex items-center space-x-2">
                             <AlertCircle className="w-5 h-5" />
@@ -321,7 +321,7 @@ const Profile = () => {
                 </div>
             )}
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-[0.5rem]">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
                     {/* Profile Sidebar */}

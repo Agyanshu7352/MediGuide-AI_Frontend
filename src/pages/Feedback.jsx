@@ -30,7 +30,7 @@ const FeedBack = () => {
   };
 
   return (
-    <section className="py-20 bg-linear-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 transition-colors duration-300">
+    <section className="py-10 pt-0 bg-linear-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 transition-colors duration-300">
       <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
           <button 
           onClick={handleBackToApp}

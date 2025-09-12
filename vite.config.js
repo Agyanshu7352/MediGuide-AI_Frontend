@@ -9,6 +9,7 @@ export default defineConfig({
     assetsDir: 'assets'
   },
   server: {
+    port:5173,
     proxy: {
       '/api': {
         target: 'https://curagenie-backend.onrender.com',

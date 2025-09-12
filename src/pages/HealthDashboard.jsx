@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Calendar, TrendingUp, Activity, Heart, Brain, Shield, FileText, Bell, Plus , CircleArrowLeft } from 'lucide-react';
+import Loading from '../components/Loading';
 
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://curagenie-backend.onrender.com';
@@ -104,7 +105,7 @@ const HealthDashboard = () => {
 
     // Show loading until data arrives
     if (!data) {
-        return <div className="p-8 text-center text-gray-600">Loading dashboard...</div>;
+        return <Loading message={error ? `Error: ${error}` : "Loading dashboard..."} />;
     }
 
     const nextPage = () => {
@@ -143,7 +144,7 @@ const HealthDashboard = () => {
     };
 
     return (
-        <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50">
+        <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 transition-colors duration-300">
             <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
                 <button 
                 onClick={handleBackToApp}
@@ -157,21 +158,21 @@ const HealthDashboard = () => {
                 {/* Health Metrics */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {data.keyMetrics.map((metric, index) => (
-                        <div key={index} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                        <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
                             <div className="flex items-center justify-between mb-3">
-                                <h3 className="text-sm font-medium text-gray-600">{metric.title}</h3>
+                                <h3 className="text-sm font-medium text-gray-600 dark:text-white">{metric.title}</h3>
                                 {getTrendIcon(metric.change?.includes("+") ? "up" : metric.change?.includes("-") ? "down" : "stable")}
                             </div>
                             <div className="mb-2">
-                                <span className="text-2xl font-bold text-gray-900">{metric.value}</span>
+                                <span className="text-2xl font-bold text-gray-900 dark:text-white">{metric.value}</span>
                                 {metric.change && (
-                                    <span className={`ml-2 text-sm ${metric.change.includes("+") ? "text-green-600" : "text-red-600"}`}>
+                                    <span className={`ml-2 text-sm ${metric.change.includes("+") ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
                                         {metric.change}
                                     </span>
                                 )}
                             </div>
-                            <p className="text-xs text-gray-500 mb-2">{metric.description}</p>
-                            <div className="text-xs text-gray-600">
+                            <p className="text-xs text-gray-500 dark:text-white mb-2">{metric.description}</p>
+                            <div className="text-xs text-gray-600 dark:text-white">
                                 Target: <span className="font-medium">{metric.target}</span>
                             </div>
                         </div>
@@ -182,9 +183,9 @@ const HealthDashboard = () => {
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-6">
                         {/* Recent Reports */}
-                        <div className="bg-white rounded-xl shadow-lg p-6">
+                        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
                             <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-xl font-bold text-gray-900">Recent Medical Reports</h2>
+                                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Recent Medical Reports</h2>
                                 <button className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors">
                                     <Plus className="h-4 w-4" />
                                     <span className="text-sm">Upload New</span>
@@ -204,8 +205,8 @@ const HealthDashboard = () => {
                                                     <FileText className="h-5 w-5 text-blue-600" />
                                                 </div>
                                                 <div>
-                                                    <h3 className="font-semibold text-gray-900">{report.name}</h3>
-                                                    <p className="text-sm text-gray-600">{report.date} • Dr. {report.doctor}</p>
+                                                    <h3 className="font-semibold text-gray-900 dark:text-white">{report.name}</h3>
+                                                    <p className="text-sm text-gray-600 dark:text-white">{report.date} • Dr. {report.doctor}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-center space-x-3">
@@ -221,18 +222,18 @@ const HealthDashboard = () => {
                         </div>
 
                         {/* Health Trends */}
-                        <div className="bg-white rounded-xl shadow-lg p-6">
-                            <h2 className="text-xl font-bold text-gray-900 mb-6">Health Trends</h2>
+                        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Health Trends</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {data.healthTrends.map((trend, index) => (
-                                    <div key={index} className="bg-linear-to-r from-blue-50 to-indigo-50 rounded-lg p-4">
+                                    <div key={index} className="bg-linear-to-r from-blue-50 to-indigo-50 rounded-lg p-4 dark:from-blue-900/20 dark:to-indigo-900/20 border border-gray-100 dark:border-gray-700">
                                         <div className="flex items-center justify-between mb-2">
-                                            <h3 className="font-medium text-gray-900">{trend.period}</h3>
+                                            <h3 className="font-medium text-gray-900 dark:text-white">{trend.period}</h3>
                                             {getTrendIcon(trend.change?.includes("+") ? "up" : trend.change?.includes("-") ? "down" : "stable")}
                                         </div>
-                                        <p className="text-sm text-gray-600 mb-1">{trend.metric}</p>
+                                        <p className="text-sm text-gray-600 dark:text-white mb-1">{trend.metric}</p>
                                         <div className="flex items-center space-x-2">
-                                            <span className="text-lg font-bold text-gray-900">{trend.value}</span>
+                                            <span className="text-lg font-bold text-gray-900 dark:text-white">{trend.value}</span>
                                             {trend.change && (
                                                 <span className={`text-sm ${trend.change.includes("-") ? "text-green-600" : "text-blue-600"}`}>
                                                     {trend.change}
@@ -248,8 +249,8 @@ const HealthDashboard = () => {
                     {/* Sidebar */}
                     <div className="space-y-6">
                         {/* Alerts & Notifications */}
-                        <div className="bg-white rounded-xl shadow-lg p-6">
-                            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                                 <Bell className="h-5 w-5 mr-2" />
                                 Alerts & Reminders
                             </h3>
@@ -267,18 +268,18 @@ const HealthDashboard = () => {
                         </div>
 
                         {/* Upcoming Appointments */}
-                        <div className="bg-white rounded-xl shadow-lg p-6">
-                            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                                 <Calendar className="h-5 w-5 mr-2" />
                                 Upcoming Appointments
                             </h3>
                             <div className="space-y-4">
                                 {data.upcomingAppointments.map((appointment, index) => (
                                     <div key={index} className="border-l-4 border-blue-500 pl-4 py-2">
-                                        <h4 className="font-medium text-gray-900">{appointment.type}</h4>
-                                        <p className="text-sm text-gray-600">Dr. {appointment.doctor}</p>
-                                        <p className="text-sm text-gray-600">{new Date(appointment.dateTime).toLocaleString()}</p>
-                                        <p className="text-xs text-gray-500">{appointment.location}</p>
+                                        <h4 className="font-medium text-gray-900 dark:text-white">{appointment.type}</h4>
+                                        <p className="text-sm text-gray-600 dark:text-white">Dr. {appointment.doctor}</p>
+                                        <p className="text-sm text-gray-600 dark:text-white">{new Date(appointment.dateTime).toLocaleString()}</p>
+                                        <p className="text-xs text-gray-500 dark:text-gray-400">{appointment.location}</p>
                                     </div>
                                 ))}
                             </div>
@@ -288,29 +289,29 @@ const HealthDashboard = () => {
                         </div>
 
                         {/* Medications */}
-                        <div className="bg-white rounded-xl shadow-lg p-6">
-                            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                                 <Heart className="h-5 w-5 mr-2" />
                                 Current Medications
                             </h3>
-                            <p className="text-sm text-gray-500">No medications available from API</p>
+                            <p className="text-sm text-gray-500 dark:text-white">No medications available from API</p>
                         </div>
 
                         {/* Quick Actions */}
-                        <div className="bg-linear-to-br from-purple-50 to-pink-50 rounded-xl p-6">
-                            <h3 className="text-lg font-bold text-gray-900 mb-4">Quick Actions</h3>
+                        <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
                             <div className="space-y-3">
-                                <button className="w-full text-left p-3 bg-white hover:bg-gray-50 rounded-lg transition-colors flex items-center space-x-3">
+                                <button className="w-full text-left p-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors flex items-center space-x-3">
                                     <FileText className="h-5 w-5 text-blue-600" />
-                                    <span className="font-medium text-gray-900">Upload New Report</span>
+                                    <span className="font-medium text-gray-900 dark:text-white">Upload New Report</span>
                                 </button>
-                                <button className="w-full text-left p-3 bg-white hover:bg-gray-50 rounded-lg transition-colors flex items-center space-x-3">
+                                <button className="w-full text-left p-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors flex items-center space-x-3">
                                     <Brain className="h-5 w-5 text-purple-600" />
-                                    <span className="font-medium text-gray-900">Get AI Insights</span>
+                                    <span className="font-medium text-gray-900 dark:text-white">Get AI Insights</span>
                                 </button>
-                                <button className="w-full text-left p-3 bg-white hover:bg-gray-50 rounded-lg transition-colors flex items-center space-x-3">
+                                <button className="w-full text-left p-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors flex items-center space-x-3">
                                     <Shield className="h-5 w-5 text-green-600" />
-                                    <span className="font-medium text-gray-900">Health Checkup</span>
+                                    <span className="font-medium text-gray-900 dark:text-white">Health Checkup</span>
                                 </button>
                             </div>
                         </div>

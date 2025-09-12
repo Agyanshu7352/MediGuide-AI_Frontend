@@ -77,7 +77,7 @@ const UploadSection = () => {
     const handleBackToApp = () => { navigate(-1); };
 
     return (
-        <section id="upload" className="py-20 bg-linear-to-br from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20">
+        <section id="upload" className="py-20 pt-0 bg-linear-to-br from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20">
             <nav className="relative z-10 p-6 flex justify-start items-center dark:text-white">
                 <button 
                 onClick={handleBackToApp}
