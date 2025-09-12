@@ -108,7 +108,7 @@ const Dashboard = () => {
     };
     const handleDelete = async (reportId) => {
         try {
-        const response = await fetch(`/api/report/delete/${reportId}`, {
+        const response = await fetch(`${API_BASE_URL}/api/report/delete/${reportId}`, {
             method: "DELETE",
             headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
