@@ -38,11 +38,38 @@ const Footer = () => {
               Empowering patients with AI-powered healthcare insights and personalized recommendations for better health management.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-6 w-6 text-gray-400 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors duration-300" />
-              <Twitter className="h-6 w-6 text-gray-400 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-300 cursor-pointer transition-colors duration-300" />
-              <Instagram className="h-6 w-6 text-gray-400 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 cursor-pointer transition-colors duration-300" />
-              <Linkedin className="h-6 w-6 text-gray-400 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500 cursor-pointer transition-colors duration-300" />
-            </div>
+                <a
+                  href="https://www.facebook.com/share/1A6pJVCvg1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Facebook className="h-6 w-6 text-gray-400 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors duration-300" />
+                </a>
+
+                <a
+                  href="https://x.com/shivay_7352"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Twitter className="h-6 w-6 text-gray-400 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-300 cursor-pointer transition-colors duration-300" />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/shivay_7352"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="h-6 w-6 text-gray-400 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 cursor-pointer transition-colors duration-300" />
+                </a>
+
+                <a
+                  href="https://linkedin.com/in/AgyanshuKumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="h-6 w-6 text-gray-400 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500 cursor-pointer transition-colors duration-300" />
+                </a>
+              </div>
           </div>
 
           {/* Quick Links */}
@@ -113,22 +140,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 dark:border-gray-700 mt-12 pt-8 transition-colors duration-300">
+        <div className="border-t border-gray-800 dark:border-gray-700 mt-10 pt-5 transition-colors duration-300">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 dark:text-gray-300 text-sm">
               © 2024 MediGuide AI. All rights reserved. Built with ❤️ for better healthcare.
             </p>
-            <div className="flex items-center space-x-6 mt-4 md:mt-0">
-              <span className="text-gray-400 dark:text-gray-300 text-sm">Powered by AI</span>
-              <div className="flex items-center space-x-2">
-                <Shield className="h-4 w-4 text-green-500 dark:text-green-400" />
-                <span className="text-gray-400 dark:text-gray-300 text-sm">HIPAA Compliant</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 text-blue-500 dark:text-blue-400" />
-                <span className="text-gray-400 dark:text-gray-300 text-sm">ISO 27001 Certified</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

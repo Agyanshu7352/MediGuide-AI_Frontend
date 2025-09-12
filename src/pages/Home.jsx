@@ -9,12 +9,12 @@ const Home = () => {
       navigate("/upload"); 
     };
   return (
-    <section id="home" className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+    <section id="home" className=" min-h-[80vh] pt-20 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight dark:text-white">
                 Your AI-Powered 
                 <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Healthcare</span> Assistant
               </h1>
@@ -34,25 +34,10 @@ const Home = () => {
                 View Demo
               </button>
             </div>
-
-            <div className="flex items-center space-x-6 pt-4">
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                <span className="text-gray-600">HIPAA Compliant</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Shield className="h-5 w-5 text-green-500" />
-                <span className="text-gray-600">Secure & Private</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Zap className="h-5 w-5 text-green-500" />
-                <span className="text-gray-600">Instant Analysis</span>
-              </div>
-            </div>
           </div>
 
           <div className="relative">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+            <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500 dark:bg-gray-800">
               <div className="bg-linear-to-br from-blue-100 to-purple-100 rounded-xl p-6 mb-4">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-gray-800">Medical Report Analysis</h3>
