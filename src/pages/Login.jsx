@@ -114,7 +114,7 @@ const Login = ({ setShowPopup }) => {
       </nav>
       {/* ... (The rest of your beautiful UI code is unchanged) ... */}
 
-      <div className="flex items-center justify-center min-h-screen p-4">
+      <div className="flex  justify-center min-h-screen p-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8 animate-fade-in">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 bg-gradient-to-r from-blue-600 to-purple-700 dark:from-blue-500 dark:to-purple-600 shadow-lg">
