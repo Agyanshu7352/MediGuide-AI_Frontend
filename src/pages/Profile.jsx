@@ -341,7 +341,7 @@ const Profile = () => {
                                                 src={profileImage}
                                                 alt="Profile"
                                                 className="w-full h-full rounded-full object-cover"
-                                                onError={(e) => { e.target.onerror = null; e.target.src = '/default-avatar.png' }} // Fallback if image fails to load
+                                                onError={(e) => { e.target.onerror = null; e.target.src = '/default-avatar.png'; e.target.alt = "default avatar"; }} // Fallback if image fails to load
                                             />
                                         </div>
 
